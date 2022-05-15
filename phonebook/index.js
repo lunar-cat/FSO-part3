@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
-morgan.token('content', (req, res) => {
+morgan.token('content', (req) => {
   return JSON.stringify(req.body);
 });
 
