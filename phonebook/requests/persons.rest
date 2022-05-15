@@ -1,0 +1,43 @@
+### => get info
+GET http://localhost:3001/info
+### => get all
+GET http://localhost:3001/api/persons
+### => get one
+GET http://localhost:3001/api/persons/624cdac1ed36a7d5eae95e87
+### => update one
+PUT http://localhost:3001/api/persons/624cdac1ed36a7d5eae95e87
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "number": "12345"
+}
+
+### => create one, if duplicated 409
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "testing",
+  "number": "1234567890"
+}
+### => create one, error 400 missing number
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "testing"
+}
+### => create one, error 400 missing name
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "number": "12312431"
+}
+### => delete one
+DELETE http://localhost:3001/api/persons/624cdac1ed36a7d5eae95e87
+### => delete one with error
+DELETE http://localhost:3001/api/persons/1
+### => request 404 endpoint
+GET http://localhost:3001/unkown_endpoint
